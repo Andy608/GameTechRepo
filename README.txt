@@ -7,6 +7,8 @@ Game Technology II
 Assignment 1
 9/12/2018
 
+Github: https://github.com/Andy608/GameTechRepo
+
 ================================================================================================
 
 5 Additions
