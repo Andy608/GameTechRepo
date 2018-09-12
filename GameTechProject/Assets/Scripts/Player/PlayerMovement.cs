@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 	//Use HEADERS to neatly organize public variables in the Unity's Inspector Window
 	[Header("Player Movement Modifiers")]
 	public float currentMoveSpeed = 0;
-	public float currentRotationSpeed = 0;
 
 	[Header("Player Gravity Modifiers")]
 
@@ -33,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
 		BasicPlayerMove();
-		BasicPlayerRotate();
 	}
 
 	//Every FIXED frame....(Best used for everything physics related)
@@ -52,18 +50,6 @@ public class PlayerMovement : MonoBehaviour
 
         //Translate the Player accordingly
         transform.Translate(x, 0, z);
-	}
-
-	//On Update(), check if Player is rotating (using Input)
-	private void BasicPlayerRotate()
-	{
-		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * currentRotationSpeed;
-
-		if(mouseX != 0)
-		{
-			 //Rotate the Player accordingly
-			transform.Rotate(0, mouseX, 0);
-		}
 	}
 
 	//On Fixed Update, check if player can jump, and is jumping

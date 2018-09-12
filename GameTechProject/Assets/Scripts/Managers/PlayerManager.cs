@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,15 +14,7 @@ namespace Managers
 	{
 		public GameObject thePlayer;
 
-		public int totalCollectedCoins = 0;
 		public int playerHealth = 100;
-
-		//Coins the player collects will call this method.
-		public void CoinCollected(int thisCoinValue)
-		{
-			totalCollectedCoins += thisCoinValue;
-			Managers.UiManager.Instance.UpdateCoinUi(totalCollectedCoins);
-		}
 
 		//Enemy bullets that collide with this player will call this method
 		public void EnemyBulletHitPlayer(int bulletDamage)
@@ -33,7 +26,7 @@ namespace Managers
 				PlayerDeath();
 		}
 
-		void PlayerDeath()
+        void PlayerDeath()
 		{
 			//No capsule is eternal.
 			Debug.Log("The Player Has Died - Whoops.");

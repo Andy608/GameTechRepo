@@ -31,7 +31,7 @@ public class Coin : MonoBehaviour {
 	{
 		if(col.gameObject.tag == "Player")
 		{
-			Managers.PlayerManager.Instance.CoinCollected(thisCoinValue);
+			Managers.CoinManager.Instance.CoinCollected(thisCoinValue);
 			Destroy(this.gameObject);
 		}
 	}
