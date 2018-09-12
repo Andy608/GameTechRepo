@@ -6,9 +6,11 @@ public class ThirdPersonCamera : MonoBehaviour
 {
     public float currentRotationSpeed = 0;
 
+    //Used to clamp the camera pitch.
     public float minPitch = 0;
     public float maxPitch = 89;
 
+    //Used to clamp the camera zoom.
     public float minZoom = -10;
     public float maxZoom = -4;
 
@@ -18,13 +20,13 @@ public class ThirdPersonCamera : MonoBehaviour
     private Vector3 cameraLocalPosition;
     private GameObject thirdPersonCamera;
 
-    private void Start ()
+    private void Start()
     {
         thirdPersonCamera = transform.Find("Main Camera").gameObject;
         cameraLocalPosition = thirdPersonCamera.transform.localPosition;
     }
 
-    void Update ()
+    void Update()
     {
         RotateCamera();
         ZoomCamera();

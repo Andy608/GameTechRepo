@@ -20,14 +20,14 @@ public class Turret : MonoBehaviour
 	public bool canShoot = false;
 
 	// Use this for initialization
-	void Start () 
+	void Start() 
 	{
 		thePlayer = Managers.PlayerManager.Instance.GetPlayer();
 		StartCoroutine(ShootAtPlayer());
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update() 
 	{
 		//Every frame, check if player is in turret's range
 		//Here the argument (distance) is not already defined. A method can be passed a argument, as long as it returns the correct type (here, a float) we're looking for.
@@ -43,13 +43,12 @@ public class Turret : MonoBehaviour
 
 	private void CheckIfInRange(float currentDistanceToPlayer)
 	{
-		if(currentDistanceToPlayer >= minActivationDistance)
+		if (currentDistanceToPlayer >= minActivationDistance)
 		{
 			//The color of an object's material can easily be modified through code
 			this.gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
 			turretIsInRange = false;
 		}
-		
 		else
 		{
 			this.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
@@ -69,7 +68,6 @@ public class Turret : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(newDirection);
 	}
 
-
 	/*
 		COROUTINES AND PERFORMANCE:
 
@@ -81,13 +79,13 @@ public class Turret : MonoBehaviour
 	private IEnumerator ShootAtPlayer()
 	{
 		//It then loops until the GameObject on which it is attached is deactivated, or remove from Hierarchy
-		while(this.gameObject.activeInHierarchy == true)
+		while (this.gameObject.activeInHierarchy == true)
 		{
 			//If conditions are met... (here, the turret is in range to player)
-			if(turretIsInRange)
+			if (turretIsInRange)
 			{
 				//Spawn (Instantiate) a bullet GameObject from a saved Prefab, at the position of the turret's launcher (empty object in front of the barrel, to avoid collision with turret)
-				GameObject bullet = GameObject.Instantiate (prefab_bullet, launcher.transform.position, launcher.transform.rotation);
+				GameObject bullet = GameObject.Instantiate(prefab_bullet, launcher.transform.position, launcher.transform.rotation);
 				
 				//Give it velocity
 				bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;

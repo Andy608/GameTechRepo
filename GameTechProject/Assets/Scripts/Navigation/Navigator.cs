@@ -5,14 +5,17 @@ using UnityEngine.AI;
 
 public class Navigator : MonoBehaviour 
 {
-
 	private NavMeshAgent navAgent;
 
 	public List<ManualNavPoint> patrolPoints;
 
 	public List<Vector3> moveDestinations = new List<Vector3>();
 
-	public enum MoveType {Walk, Run}
+	public enum MoveType
+    {
+        Walk,
+        Run
+    };
 
 	public float walkSpeed = 5;
 	public float runSpeed = 10;
@@ -20,14 +23,15 @@ public class Navigator : MonoBehaviour
 	public bool isMoving = false;
 
 	// Use this for initialization
-	void Start () 
+	void Start() 
 	{
 		navAgent = GetNavAgent();
 		//StartCoroutine(MoveCharacter_Patrol(MoveType.Walk, patrolPoints));
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update()
+    {
 		//MoveOnMouseClick();
 	}
 
@@ -124,11 +128,15 @@ public class Navigator : MonoBehaviour
 
 		//While the Agent is still calculating path, wait
 		while(navAgent.pathPending)
+        {
 			yield return null;
+        }
 
 		//Once the character has a valid path to the waypoint, and is not within a certain distance of the waypoint
 		while(navAgent.remainingDistance > 0.25f)
+        {
 			yield return null;
+        }
 	}
 
 	private float DetermineMovementSpeed(MoveType desiredMoveType)
@@ -136,10 +144,14 @@ public class Navigator : MonoBehaviour
 		float newSpeed = 0;
 
 		if(desiredMoveType == MoveType.Walk)
+        {
 			newSpeed = walkSpeed;
+        }
 		
 		if(desiredMoveType == MoveType.Run)
+        {
 			newSpeed = runSpeed;
+        }
 
 		return newSpeed;
 	}
@@ -147,7 +159,9 @@ public class Navigator : MonoBehaviour
 	private NavMeshAgent GetNavAgent()
 	{
 		if(navAgent == null)
+        {
 			navAgent = this.gameObject.GetComponent<NavMeshAgent>();
+        }
 
 		return navAgent;
 	}

@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class TankAi : MonoBehaviour 
 {
+	public enum AiState
+    {
+        None,
+        Idle,
+        TargetAcquired
+    }
 
-	public enum AiState{None, Idle, TargetAcquired}
 	public AiState currentAiState;
 
 	public Navigator thisNavigator;
@@ -25,19 +30,18 @@ public class TankAi : MonoBehaviour
 	private void RefreshState()
 	{
 	
-		if(thisFieldOfView.visibleTargets.Count != 0)
+		if (thisFieldOfView.visibleTargets.Count != 0)
 		{
-			if(currentAiState != AiState.TargetAcquired)
+			if (currentAiState != AiState.TargetAcquired)
 			{
 				this.StopAllCoroutines();
 				currentAiState = AiState.TargetAcquired;
 				StartCoroutine(NewBehaviour());
 			}
 		}
-
 		else
 		{
-			if(currentAiState != AiState.Idle)
+			if (currentAiState != AiState.Idle)
 			{
 				this.StopAllCoroutines();
 				currentAiState = AiState.Idle;
@@ -48,7 +52,7 @@ public class TankAi : MonoBehaviour
 
 	private IEnumerator NewBehaviour()
 	{
-		if(currentAiState == AiState.Idle)
+		if (currentAiState == AiState.Idle)
 		{
 			thisNavigator.StopAllMovements();
 			thisTurret.canShoot = false;
@@ -56,7 +60,6 @@ public class TankAi : MonoBehaviour
 			currentAiState = AiState.None;
 			RefreshState();
 		}
-
 		else if (currentAiState == AiState.TargetAcquired)
 		{
 			thisNavigator.StopAllMovements();

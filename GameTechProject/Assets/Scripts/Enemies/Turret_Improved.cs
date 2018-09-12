@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret_Improved : MonoBehaviour {
-
+public class Turret_Improved : MonoBehaviour
+{
 	private GameObject thePlayer;
 
 	public float turretRotationSpeed = 0;
@@ -20,7 +20,7 @@ public class Turret_Improved : MonoBehaviour {
 	public bool isShooting = false;
 
 	// Use this for initialization
-	void Start () 
+	void Start() 
 	{
 		thePlayer = Managers.PlayerManager.Instance.GetPlayer();
 	}
@@ -30,14 +30,15 @@ public class Turret_Improved : MonoBehaviour {
 		RotateTowardsPlayer();
 		ChangeColor();
 
-		if(isShooting == false)
+		if (isShooting == false)
+        {
 			StartCoroutine(ShootAtPlayer());
-
+        }
 	}
 	
 	private void RotateTowardsPlayer()
 	{
-		if(canShoot)
+		if (canShoot)
 		{
 			Vector3 targetDirection = thePlayer.transform.position - this.transform.position;
 
@@ -47,7 +48,6 @@ public class Turret_Improved : MonoBehaviour {
 			//Move our position a step closer to the target.
 			transform.rotation = Quaternion.LookRotation(newDirection);
 		}
-		
 		else
 		{
 			transform.rotation = transform.parent.rotation;
@@ -56,17 +56,20 @@ public class Turret_Improved : MonoBehaviour {
 
 	private void ChangeColor()
 	{
-		if(canShoot == true)
-			this.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-
-		else if(canShoot == false)
-			this.gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
+        if (canShoot == true)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+        }
+        else if (canShoot == false)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
+        }
 	}
 		
 	//The "ShootAtPlayer" Coroutine is here launched once on Start()
 	private IEnumerator ShootAtPlayer()
 	{
-		if(canShoot)
+		if (canShoot)
 		{
 			isShooting = true;
 

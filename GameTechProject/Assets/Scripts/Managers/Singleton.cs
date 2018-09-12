@@ -14,10 +14,13 @@ namespace Managers
             get
             {
                 if (instance == null)
+                {
                     instance = FindObjectOfType<T>();
-
+                }
                 else if (instance != FindObjectOfType<T>())
+                {
                     Destroy(FindObjectOfType<T>());
+                }
 
                 return instance;
             }

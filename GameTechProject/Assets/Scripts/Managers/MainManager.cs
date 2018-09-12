@@ -7,7 +7,12 @@ namespace Managers
 {
     public class MainManager : Singleton<MainManager>
     {
-        public enum EndType { WIN, LOSE };
+        //Used to determine what to display in the End Sceen UI Panel.
+        public enum EndType
+        {
+            WIN,
+            LOSE
+        };
 
         public bool debugMode = false;
 

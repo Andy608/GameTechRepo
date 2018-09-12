@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet_Turret : MonoBehaviour {
-
+public class Bullet_Turret : MonoBehaviour
+{
 	public int thisBulletDamage = 100;
 	
 	void Start()
@@ -17,14 +17,13 @@ public class Bullet_Turret : MonoBehaviour {
 	void OnCollisionEnter(Collision col)
 	{
 		//If it hits the Player
-		if(col.gameObject.tag == "Player")
+		if (col.gameObject.tag == "Player")
 		{
 			//Apply damage (through the PLAYER MANAGER)
 			Managers.PlayerManager.Instance.EnemyBulletHitPlayer(thisBulletDamage);
 			//And destroy this bullet, so it doesn't just roll around the level.
 			Destroy(this.gameObject);
 		}
-
 		else
 		{
 			//If the bullet hits something else (Ex: a wall), simply destroy it.

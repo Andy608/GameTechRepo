@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour {
-
+public class Coin : MonoBehaviour
+{
 	public int thisCoinValue = 6;
 	
 	private int randomCoinRotationSpeed;
@@ -15,7 +15,7 @@ public class Coin : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () 
+	void Update() 
 	{
 		RotateCoin();
 	}
@@ -23,7 +23,7 @@ public class Coin : MonoBehaviour {
 	//Giving our coins a perceptible and varied rotation makes them a bit less boring inside the scene.
 	void RotateCoin()
 	{
-		this.transform.Rotate (0, randomCoinRotationSpeed * Time.deltaTime, 0);
+		this.transform.Rotate(0, randomCoinRotationSpeed * Time.deltaTime, 0);
 	}
 
 	//Coins that intersect with the player will communicate with the PlayerManager singleton 

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldOfView : MonoBehaviour {
-
+public class FieldOfView : MonoBehaviour
+{
 	public float viewRadius;
 	[Range(0, 360)] public float viewAngle;
 
@@ -23,9 +23,11 @@ public class FieldOfView : MonoBehaviour {
 	{
 
 		//If the angle is NOT global (meaning LocalRotation from our character is taken into account)
-		if(!angleIsGlobal)
+		if (!angleIsGlobal)
+        {
 			//Add the character's LocalRotation angle into the AngleInDegrees Calculation
 			angleInDegrees += transform.eulerAngles.y;
+        }
 
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
 	}
@@ -39,19 +41,19 @@ public class FieldOfView : MonoBehaviour {
 		Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
 		//For each of them...
-		for(int i = 0; i < targetsInViewRadius.Length; i++)
+		for (int i = 0; i < targetsInViewRadius.Length; i++)
 		{
 			//Identify its Transform
 			Transform target = targetsInViewRadius[i].transform;
 
 			//Check if the Transform's current direction (from self) is inside the View Angle
 			Vector3 directionToTarget = (target.position - transform.position).normalized;
-			if(Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
+			if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
 			{	
 				//If so, calculate distance to target
 				float distanceToTarget = Vector3.Distance(transform.position, target.position);
 				//Then send a RayCast that checks to see if it first collides with any vision blocking obstacle
-				if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
+				if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
 				{
 					//If not and raycast collides with target, add it to the list of visible targets
 					visibleTargets.Add(target);
@@ -62,7 +64,7 @@ public class FieldOfView : MonoBehaviour {
 
 	IEnumerator FindTargetsWithDelay(float delay)
 	{
-		while(true)
+		while (true)
 		{
 			//Wait for the next FOV Refrest
 			yield return new WaitForSeconds (delay);

@@ -21,9 +21,11 @@ namespace Managers
 		{
 			playerHealth -= bulletDamage;
 
-			if(playerHealth <= 0)
+			if (playerHealth <= 0)
+            {
 				//The player has a limited health pool. 
 				PlayerDeath();
+            }
 		}
 
         void PlayerDeath()
@@ -40,8 +42,10 @@ namespace Managers
 		public GameObject GetPlayer()
 		{
 			//This method will only search for the player by GameObject name (resource intensive, especially in larger scenes) IF it has not already been identified (or reset on PlayerDeath())
-			if(thePlayer == null)
+			if (thePlayer == null)
+            {
 				thePlayer = GameObject.FindGameObjectWithTag("Player");
+            }
 
 			return thePlayer;
 		}		

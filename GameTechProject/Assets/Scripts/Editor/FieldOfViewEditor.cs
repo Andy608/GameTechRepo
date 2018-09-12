@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//This uses UnityEditor
 using UnityEditor;
 
 [CustomEditor(typeof (FieldOfView))]
@@ -25,9 +24,9 @@ public class FieldOfViewEditor : Editor
 
         //////////////////////////
 
-        if(fov.visibleTargets.Count >= 1)
+        if (fov.visibleTargets.Count >= 1)
         {
-             foreach (Transform visibleTarget in fov.visibleTargets)
+            foreach (Transform visibleTarget in fov.visibleTargets)
             {
                 Handles.color = Color.red; 
                 Handles.DrawLine(fov.transform.position, visibleTarget.transform.position);

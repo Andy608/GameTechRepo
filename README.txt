@@ -45,7 +45,7 @@ Collect all of the turret's coins without the turret hitting you with their bull
 
 Victory Condition
 
-- Collect all of the coins in the scene to win.
+- Collect all four coins in the scene to win.
 
 Defeat Condition
 

@@ -9,12 +9,10 @@ public class PlayerMovement : MonoBehaviour
 	public float currentMoveSpeed = 0;
 
 	[Header("Player Gravity Modifiers")]
-
 	public float jumpForce;
 	public float fallForce;
 
 	[Header("Is Player Grounded")]
-
 	public bool isGrounded;
 
 	//////////////////////////////////////
@@ -55,9 +53,9 @@ public class PlayerMovement : MonoBehaviour
 	//On Fixed Update, check if player can jump, and is jumping
 	private void BasicPlayerJump()
 	{
-		if(isGrounded)
+		if (isGrounded)
 		{
-			if(Input.GetButton("Jump"))
+			if (Input.GetButton("Jump"))
 			{
 				Vector3 jump = new Vector3(0, jumpForce, 0);
 				
@@ -75,12 +73,12 @@ public class PlayerMovement : MonoBehaviour
 	//Adding feedback to the fall is just one of the many ways to easily improve the gamefeel of our prototype.
 	private void BasicPlayerFall()
 	{
-		if(!isGrounded)
+		if (!isGrounded)
 		{
 			//You can measure and monitor a Rigidbody's current velocity (positive or negative value) on any axis
 			//Debug.Log(thisRigidBody.velocity.y);
 
-			if(thisRigidBody.velocity.y < 0)
+			if (thisRigidBody.velocity.y < 0)
 			{
 				Vector3 fall = new Vector3(0, fallForce, 0);
 				thisRigidBody.AddForce(fall, ForceMode.Acceleration);
@@ -91,6 +89,8 @@ public class PlayerMovement : MonoBehaviour
 	private void OnCollisionStay(Collision col)
 	{
 		if(col.gameObject.tag == "Floor")
+        {
 			isGrounded = true;
+        }
 	}
 }
