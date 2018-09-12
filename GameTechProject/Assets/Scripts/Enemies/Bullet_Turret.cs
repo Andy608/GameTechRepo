@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet_Turret : MonoBehaviour {
 
-	public int thisBulletDamage = 5;
+	public int thisBulletDamage = 100;
 	
 	void Start()
 	{

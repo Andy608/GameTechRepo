@@ -27,6 +27,7 @@ namespace Managers
             {
                 //Win state
                 Debug.Log("You win!");
+                Managers.MainManager.Instance.EndGame(Managers.MainManager.EndType.WIN);
             }
         }
     }

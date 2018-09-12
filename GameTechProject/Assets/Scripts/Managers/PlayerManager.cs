@@ -16,8 +16,8 @@ namespace Managers
 
 		public int playerHealth = 100;
 
-		//Enemy bullets that collide with this player will call this method
-		public void EnemyBulletHitPlayer(int bulletDamage)
+        //Enemy bullets that collide with this player will call this method
+        public void EnemyBulletHitPlayer(int bulletDamage)
 		{
 			playerHealth -= bulletDamage;
 
@@ -32,6 +32,8 @@ namespace Managers
 			Debug.Log("The Player Has Died - Whoops.");
 			//Set the Player's reference to NULL to make sure his next apparition (if he or she respawns) can be acquired and refreshed by GetPlayer()
 			thePlayer = null;
+
+            Managers.MainManager.Instance.EndGame(Managers.MainManager.EndType.LOSE);
 		}
 
 		//Other classes will use this common method to gather a link to the Player GameObject (instead of each class searching for the PLayer GameObject by name)
