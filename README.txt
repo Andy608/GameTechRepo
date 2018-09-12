@@ -11,6 +11,12 @@ Github: https://github.com/Andy608/GameTechRepo
 
 ================================================================================================
 
+Goal of the Game:
+
+Collect all of the turret's coins without the turret hitting you with their bullets!
+
+================================================================================================
+
 5 Additions
 
 1. Adding more 3rd person camera options.
@@ -34,6 +40,21 @@ Github: https://github.com/Andy608/GameTechRepo
 6. Added Replay Button.
    - There is a button that resets the game if the player wants to go again, or an exit button
      if they want to stop playing.
+
+================================================================================================
+
+Victory Condition
+
+- Collect all of the coins in the scene to win.
+
+Defeat Condition
+
+- Get hit by the turret once to lose.
+
+Controls
+
+- WASD to move the character around. Moving the mouse rotates the 3D camera. Scrolling the mouse
+  wheel changes the zoom of the camera.
 
 ================================================================================================
 
