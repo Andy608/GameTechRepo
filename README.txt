@@ -4,85 +4,24 @@ README.txt
 
 Andrew Rimpici
 Game Technology II
-Assignment 1
-9/12/2018
+Assignment 2 Check-In
+9/20/2018
 
 Github: https://github.com/Andy608/GameTechRepo
 
 ================================================================================================
 
-Goal of the Game:
+About
 
-Collect all of the turret's coins without the turret hitting you with their bullets!
-
-================================================================================================
-
-5 Additions
-
-1. Adding more 3rd person camera options.
-   - Added ThirdPersonCamera script in the new Camera folder located in the Scripts folder.
-   - Now when you move the mouse up and down, the camera rotates along the x-axis.
-   - Zooming in and out with the mouse will zoom the camera in and out too.
-
-2. Added Coin Manager.
-   - Added CoinManager object and script to manage all of the coins in the level.
-
-3. Added Win Condition.
-   - Uses the CoinManager to determine once all of the coins are destroyed from the parent,
-     then the game goes to the win state.
-
-4. Added Lose Condition.
-   - If the player gets hit, the game is over. :o
-
-5. Added End Condition Panel UI.
-   - Once the win or lose condition is satisfied, we open the end panel to see our results!
-
-6. Added Replay Button.
-   - There is a button that resets the game if the player wants to go again, or an exit button
-     if they want to stop playing.
-
-================================================================================================
-
-Victory Condition
-
-- Collect all four coins in the scene to win.
-
-Defeat Condition
-
-- Get hit by the turret once to lose.
-
-Controls
-
-- WASD to move the character around. Moving the mouse rotates the 3D camera. Scrolling the mouse
-  wheel changes the zoom of the camera.
+- The scene I have created my map in is called the "Level" scene.
+- In the scene, there is an open area for the character to move around in that is surrounded by
+  trees. In the future, zombies will spawn from inside the forest and the player will have to
+  stay alive for as long as possible.
 
 ================================================================================================
 
 Struggles
 
-- I originally tired to make a separate scene for the end state, but I was running into a lot of
-  problems with the managers and the ui. I would like to learn how to cleanly make multiple
-  scenes in a future class utilizing the managers.
-
-- The camera rotation took me longer than I expected to implement, but I am pretty happy with 
-  the results as of right now.
-
-- I keep having a weird Unity bug that says "Copying assembly from 'Temp/Assembly-CSharp.dll'
-  to 'Library/ScriptAssemblies/Assembly-CSharp.dll' failed" which forces me to have to restart
-  Unity every few minutes.
+- Getting the Navmesh to work properly in only my desired play area. (Inside the forest).
 
 ================================================================================================
-
-Possible Future Topics
-
-- I am interested in learning about a clean way to have multiple scenes and carry over manager
-  objects from each scene to the next.
-
-- I am interested in learning about TextMeshPro as I'm only familiar with using the default UI
-  elements that Unity provides.
-
-- In addition, I am interested in learning about Unity shaders, and lighting.
-
-================================================================================================
-
-I hope you enjoy my build!
