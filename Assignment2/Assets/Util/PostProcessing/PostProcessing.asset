@@ -31,14 +31,14 @@ MonoBehaviour:
   antialiasing:
     m_Enabled: 1
     m_Settings:
-      method: 0
+      method: 1
       fxaaSettings:
-        preset: 2
+        preset: 4
       taaSettings:
-        jitterSpread: 0.75
-        sharpen: 0.3
-        stationaryBlending: 0.95
-        motionBlending: 0.85
+        jitterSpread: 1
+        sharpen: 0
+        stationaryBlending: 0.99
+        motionBlending: 0.99
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
@@ -46,7 +46,7 @@ MonoBehaviour:
       radius: 0.3
       sampleCount: 10
       downsampling: 1
-      forceForwardCompatibility: 0
+      forceForwardCompatibility: 1
       ambientOnly: 1
       highPrecision: 0
   screenSpaceReflection:
@@ -69,11 +69,11 @@ MonoBehaviour:
       screenEdgeMask:
         intensity: 0.03
   depthOfField:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       focusDistance: 10
       aperture: 5.6
-      focalLength: 50
+      focalLength: 32
       useCameraFov: 0
       kernelSize: 1
   motionBlur:
@@ -90,24 +90,24 @@ MonoBehaviour:
       minLuminance: -5
       maxLuminance: 1
       keyValue: 0.25
-      dynamicKeyValue: 1
+      dynamicKeyValue: 0
       adaptationType: 0
       speedUp: 2
       speedDown: 1
-      logMin: -8
-      logMax: 4
+      logMin: -16
+      logMax: 1
   bloom:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.25
+        intensity: 0.05
         threshold: 1.1
-        softKnee: 0.5
-        radius: 5
+        softKnee: 1
+        radius: 3.39
         antiFlicker: 1
       lensDirt:
         texture: {fileID: 0}
-        intensity: 3
+        intensity: 1
   colorGrading:
     m_Enabled: 1
     m_Settings:
@@ -134,9 +134,9 @@ MonoBehaviour:
       colorWheels:
         mode: 1
         log:
-          slope: {r: 1, g: 1, b: 1, a: 0}
-          power: {r: 1, g: 1, b: 1, a: 0}
-          offset: {r: 1, g: 1, b: 1, a: 0}
+          slope: {r: 0.8997492, g: 0.7994988, b: 1, a: 0}
+          power: {r: 1, g: 0.8781645, b: 0.6653292, a: 0}
+          offset: {r: 0.90212715, g: 0.93506885, b: 1, a: 0}
         linear:
           lift: {r: 1, g: 1, b: 1, a: 0}
           gamma: {r: 1, g: 1, b: 1, a: 0}
@@ -317,7 +317,7 @@ MonoBehaviour:
       size: 0.3
       luminanceContribution: 1
   vignette:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
