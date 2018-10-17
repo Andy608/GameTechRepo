@@ -4,10 +4,10 @@ README.txt
 
 Andrew Rimpici
 Game Technology II
-Assignment 2 Complete
-10/04/2018
+Assignment 4 Check In
+10/18/2018
 
-Github: https://github.com/Andy608/GameTechRepo/tree/assignment-2-complete
+Github: https://github.com/Andy608/GameTechRepo/tree/assignment-4-checkin
 
 Unity Version Number: 2018.2.8f1
 
@@ -23,35 +23,11 @@ About
 
 ================================================================================================
 
-Two New Mechanics
+New Mechanics
 
-- The first new mechanic is the addition of enemies to the scene. There are now zombie entities
-  that chase the player. These zombies will eventually spawn in the forest and come after the
-  player in waves.
-- The second new mechanic is shooting. The player can now shoot bullets in the direction they
-  are facing. Bullets disappear when they collide with something. If the bullet hits a zombie,
-  the zombie dies.
-
-================================================================================================
-
-Lighting
-
-- I chose to use baked lighting as I have a lot of trees in my scene and using real time 
-  lighting would most likely slow it down. To remedy the amount of objects in my scene, I also
-  turned on Occlusion culling like we learned in class.
-- I made the directional light seem like it was dusk time to give the level a more ominous feel.
-- In addition, I placed lights in the forest to light up the environment as well as make it 
-  seem more spooky. In the future, zombies may spawn near these light points.
-
-================================================================================================
-
-Post-Processing
-
-- I added Antialaising, Ambient Occlusion, Depth of Field, Eye Adaption, Bloom, Color Grading,
-  and Dithering to my post processing all of which work together to make the scene more ominous.
-- Without the post processing, I think the scene still looks nice, but the post-processing gives
-  the scene that extra push towards professionalism. I noticed the biggest change when I turned
-  on the Antialaising property as it got rid of most of the jagged pixel edges.
+- Added in zombie animations! Zombies now have an idle and running state using a blend tree.
+- Updated the camera from being 3rd person to 1st person.
+- Updated bullet spawning code to be a bit more responsive.
 
 ================================================================================================
 
@@ -66,7 +42,8 @@ Controls
 
 Struggles
 
-- The lighting took hours upon hours to bake, so I was not able to play around with lighting as
-  much as I would have liked. I still like the results though.
+- I was having some trouble getting blendtrees to work on characters that the character doesn't
+  control since I couldn't use Input data to change the state of them. I ended up just using
+  the enemy's velocity to change the movement state of the animations in the blend tree.
 
 ================================================================================================
