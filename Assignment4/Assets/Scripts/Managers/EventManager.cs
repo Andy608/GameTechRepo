@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Managers
 {
@@ -20,6 +21,10 @@ namespace Managers
 					OnMouseDownAction();
 				}
 			}
+            else if (Input.GetKey(KeyCode.Space) && SceneManager.GetActiveScene().name == "Title")
+            {
+                SceneManager.LoadScene("Level");
+            }
 		}
 	}
 }
