@@ -28,6 +28,11 @@ public class BulletSpawn : MonoBehaviour
 
 	private void StartFiring()
 	{
+        if (Managers.GameStateManager.Instance.CurrentState != EnumGameState.GAME_PLAYING)
+        {
+            return;
+        }
+
         if (firing == null)
         {
             firing = StartCoroutine(FireBullets());
